@@ -1,0 +1,20 @@
+<%- include("partials/header"); -%>
+
+<h1>Home</h1>
+<p> <%= startingContent  %> </p>
+
+<% function truncateString(str,num) { %>
+    <% let cpystr=str; %>
+    <% if (cpystr.length <= num) { %>
+    <%   return cpystr; %>
+    <% } %>
+    <% return cpystr.slice(0, num) + '. . .'; %>
+<% } %>
+
+<% for (var i=0 ; i < newPosts.length ; i++){ %>
+    <h1><%= newPosts[i].post_title %></h1>
+    <p><%= truncateString(newPosts[i].post_content,100) %> <a href="/posts/<%= newPosts[i].post_title %>">Read More</a></p>
+<% } %>
+
+
+<%- include("partials/footer"); -%>
